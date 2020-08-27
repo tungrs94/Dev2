@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html>
-<body>
+<?php 
 
-<h1>My first PHP page</h1>
+    header('location: Controllers/index_controller.php');
 
-<?php
-echo "Hello World!";
-?> 
-
-</body>
-</html>
-
+?>
