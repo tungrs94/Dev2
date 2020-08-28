@@ -1,12 +1,9 @@
 <?php
-	
+
 	include '../Models/connectdb.php';
-   include '../Models/postList.php';
+   	include '../Models/postList.php';
 
 
-	// include '../Models/admin_model.php';
-
-   connect();
    $postList = postList();
 
 	include '../Views/header.php';
@@ -16,14 +13,18 @@
 
 		switch ($act) {
 			case 'about':
-				// $manage_posts=showall();
 				include '../Views/about.php';
 				break;
-         case 'id':
-         // $manage_posts=showall();
-            include '../Views/about.php';
+         case 'post':
+            if(isset($_GET['id'])&&($_GET['id']>0)){
+               $idp=$_GET['id'];
+            }else{
+               $idp=0;
+            }
+            $postList=showPost($idp);
+            include '../Views/post.php';
             break;
-		
+
 			default:
 				include '../Views/content.php';
 				break;
@@ -31,7 +32,7 @@
 	}else{
 		include '../Views/content.php';
 	}
-   
+
 
    include '../Views/footer.php';
 
