@@ -1,61 +1,43 @@
-<h1>New</h1>
-<a href="">
-    <button>show</button>
-</a>
-<a href="">
-    <button>back</button>
-</a>
-
-
-<!-- <form action="admin.php?act=managePost" method="POST" enctype="multipart/form-data"> -->
-<div>
+<h1>New Post</h1>
+<form action="admin.php?act=new" method="POST" enctype="multipart/form-data">
     <div class="card">
         <div class="card-body">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="inputPassword6">Title</label>
-                    <input type="text" class="form-control mx-sm-3">
-                </div>
-            </form>
+            <div class="form-group">
+                <label for="inputPassword6">title</label>
+                <input type="text" name="title" id="" class="form-control mx-sm-3">
+            </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="inputPassword6">Descriptins</label>
-                    <input type="text" class="form-control mx-sm-3">
-                </div>
-            </form>
+            <div class="form-group">
+                <label for="inputPassword6">descriptions</label>
+                <input type="text" name="descriptions" id="" class="form-control mx-sm-3">
+            </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="inputPassword6">Image</label>
-                    <input type="file" class="form-control mx-sm-3">
-                </div>
-            </form>
+            <div class="form-group">
+                <label for="inputPassword6">image</label>
+                <input type="file" name="img" class="form-control mx-sm-3">
+            </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="inputPassword6">Status</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Enable</option>
-                        <option selected>Disable</option>
-                    </select>
-                </div>
-            </form>
+            <div class="form-group">
+                <label for="inputPassword6">status</label>
+                <select id="inputState" name="status" class="form-control">
+                    <option value="enable">enable</option>
+                    <option value="disable">disable</option>
+                </select>
+            </div>
         </div>
     </div>
     <div class="card">
         <div class="card-body">
-            <input type="submit" value="Submit" name="submit">
+            <input type="submit" name="submit">
         </div>
     </div>
-</div>
-<!-- </form> -->
+</form>

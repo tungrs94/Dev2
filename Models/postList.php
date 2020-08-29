@@ -23,9 +23,9 @@
 	}
 
 	function newPost($title, $descriptions, $img, $status){
-		$sql="insert into post (title, description, image, status) values ('$title','$descriptions', '$img', '$status')";
-		$conn = connect();
-		$conn -> exec($sql);
+		$sql="insert into post (title, descriptions, image, status) values ('$title','$descriptions', '$img', '$status')";
+		$conn=connect();
+		$conn->exec($sql);
 	}
 
 ?>
