@@ -15,13 +15,13 @@ if (isset($_GET['act'])) {
 				$title = $_POST['title'];
 				$status = $_POST['status'];
 				$descriptions = $_POST['descriptions'];
-				$img = $_FILES['img']['name'];
+				$img = 'uploads/' . $_FILES['img']['name'];
 				$target_dir = "/uploads/";
 				$target_file = $target_dir . basename($img);
 				if ($_FILES['img']['error'] > 0) {
 					echo 'upload error';
 				} else {
-					move_uploaded_file($_FILES['img']['tmp_name'], 'uploads/' . $_FILES['img']['name']);
+					move_uploaded_file($_FILES['img']['tmp_name'], $img);
 				}
 				newPost($title, $descriptions, $img, $status);
 			}
@@ -47,7 +47,7 @@ if (isset($_GET['act'])) {
 						echo 'upload error';
 					} else {
 						move_uploaded_file($_FILES['img']['tmp_name'], 'uploads/' . $_FILES['img']['name']);
-						print_r($_FILES);
+						echo 'OKOKOKOKOK';
 					}
 				} else {
 					$img = '';
