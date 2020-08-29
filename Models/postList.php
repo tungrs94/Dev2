@@ -28,4 +28,19 @@
 		$conn->exec($sql);
 	}
 
+	function updatePost($id,$title,$descriptions,$img,$status){
+		if($img!='')
+			$sql="update post set title='$title',descriptions='$descriptions',image='$img',status='$status' where id=".$id;
+			else $sql="update post set title='$title',descriptions='$descriptions',status='$status' where id=".$id;
+		$conn = connect();
+		$stmt = $conn->prepare($sql);
+		$stmt->execute();
+	}
+
+	function delPost($id){
+		$sql="delete from post where id=".$id;
+		$conn = connect();
+		$conn->exec($sql);
+	}
+
 ?>

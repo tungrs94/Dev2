@@ -37,7 +37,7 @@
     </div>
     <div class="card">
         <div class="card-body">
-            <input type="submit" name="submit">
+            <input type="submit" value="Create" name="submit">
         </div>
     </div>
 </form>
