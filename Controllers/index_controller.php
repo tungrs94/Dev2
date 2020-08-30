@@ -35,5 +35,3 @@
 
 
    include '../Views/footer.php';
-
-?>

@@ -6,21 +6,13 @@
   <button>back</button>
 </a>
 
-<form action="admin.php?act=edit&id=<?=$ide?>" method="POST" enctype="multipart/form-data">
-  <?php
-    foreach ($postList as $post) {
-      $id = $post['id'];
-      $title = $post['title'];
-      $descriptions = $post['descriptions'];
-      $status = $post['status'];
-      $image = $post['image'];
-    }
-  ?>
+
+<form action="admin.php?act=edit&id=<?= $infoPost['id'] ?>" method="POST" enctype="multipart/form-data">
   <div class="card">
     <div class="card-body">
       <div class="form-group">
         <label for="inputPassword6">Title</label>
-        <input type="text" class="form-control mx-sm-3" value="<?=$title?>">
+        <input type="text" name="title" class="form-control mx-sm-3" value="<?= $infoPost['title'] ?>">
       </div>
     </div>
   </div>
@@ -28,19 +20,17 @@
     <div class="card-body">
       <div class="form-group">
         <label for="inputPassword6">Descriptins</label>
-        <input type="text" class="form-control mx-sm-3" value="<?=$descriptions?>">
+        <input type="text" name="descriptions" class="form-control mx-sm-3" value="<?= $infoPost['descriptions'] ?>">
       </div>
     </div>
   </div>
   <div class="card">
     <div class="card-body">
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="inputPassword6">Image</label>
-          <input type="file" class="form-control mx-sm-3">
-          <img src="<?=$image?>" alt="">
-        </div>
-      </form>
+      <div class="form-group">
+        <label for="inputPassword6">Image</label>
+        <input type="file" name="img" class="form-control mx-sm-3">
+        <img src="<?= $infoPost['image'] ?>" alt="">
+      </div>
     </div>
   </div>
   <div class="card">
@@ -48,15 +38,15 @@
       <div class="form-group">
         <label for="inputPassword6">Status</label>
         <select id="inputState" name="status" class="form-control">
-          <option selected><?=$status?></option>
+          <option selected><?= $infoPost['status'] ?></option>
         </select>
       </div>
     </div>
   </div>
-  <input type="hidden" name="id" value="<?=$id?>">
+  <input type="hidden" name="id" value="<?= $infoPost['id'] ?>">
   <div class="card">
     <div class="card-body">
       <input type="submit" value="Update" name="submit">
     </div>
+  </div>
 </form>
-</div>

@@ -34,28 +34,28 @@ if (isset($_GET['act'])) {
 			} else {
 				$ide = 0;
 			}
-			if (isset($_POST['submit']) && ($_POST['submit'] > 0)) {
+			$infoPost = showPost($_GET['id']);
+			if (isset($_POST['submit'])) {
 				$id = $_POST['id'];
 				$title = $_POST['title'];
 				$status = $_POST['status'];
 				$descriptions = $_POST['descriptions'];
 				if ($_FILES['img']['name'] != '') {
-					$img = $_FILES['img']['name'];
+					$img = 'uploads/' . $_FILES['img']['name'];
 					$target_dir = "/uploads/";
 					$target_file = $target_dir . basename($img);
 					if ($_FILES['img']['error'] > 0) {
 						echo 'upload error';
 					} else {
-						move_uploaded_file($_FILES['img']['tmp_name'], 'uploads/' . $_FILES['img']['name']);
-						echo 'OKOKOKOKOK';
+						move_uploaded_file($_FILES['img']['tmp_name'], $img);
 					}
 				} else {
 					$img = '';
 				}
 
-				updatePost($id, $title, $descriptions, $img, $status);
+				updatePost($id, $title, $status, $descriptions, $img);
 			}
-			$postList = showPost($ide);
+			$infoPost = showPost($ide);
 			include '../Views/admin/edit.php';
 			break;
 

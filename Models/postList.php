@@ -14,12 +14,11 @@
 		if($id>0){
 			$sql.=' AND id='.$id;
 		}
-		$sql.=' order by id';
 		$conn = connect();
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
-		return	$stmt->fetchAll();
+		return	$stmt->fetch();
 	}
 
 	function newPost($title, $descriptions, $img, $status){
@@ -28,10 +27,11 @@
 		$conn->exec($sql);
 	}
 
-	function updatePost($id,$title,$descriptions,$img,$status){
+	function updatePost($id, $title, $status, $descriptions, $img){
 		if($img!='')
 			$sql="update post set title='$title',descriptions='$descriptions',image='$img',status='$status' where id=".$id;
 			else $sql="update post set title='$title',descriptions='$descriptions',status='$status' where id=".$id;
+
 		$conn = connect();
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
@@ -42,5 +42,3 @@
 		$conn = connect();
 		$conn->exec($sql);
 	}
-
-?>

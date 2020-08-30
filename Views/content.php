@@ -7,22 +7,22 @@
     </tr>
   </thead>
   <?php
-    foreach ($postList as $post) {
-      $title = $post['title'];
-      $id = $post['id'];
-      $image = $post['image'];
-      $link = 'index_controller.php?act=post&id='.$id;
-      echo '<tbody>
+  foreach ($postList as $post) {
+    $title = $post['title'];
+    $id = $post['id'];
+    $image = $post['image'];
+    $link = 'index_controller.php?act=post&id=' . $id;
+    echo '<tbody>
               <tr>
-                <td scope="row">'.$id.'</td>
+                <td scope="row">' . $id . '</td>
                 <td>
-                  <img src="'.$image.'" alt="">
+                  <img src="' . $image . '" alt="">
                 </td>
                 <td>
-                  <a href="'.$link.'">'.$title.'</a>
+                  <a href="' . $link . '">' . $title . '</a>
                 </td>
               </tr>
             </tbody>';
-    }
+  }
   ?>
 </table>

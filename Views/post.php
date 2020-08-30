@@ -1,16 +1,8 @@
-
 <a href="index_controller.php">
 	<button id='back'>back</button>
 </a>
 
 
-<?php
-	foreach ($postList as $post) {
-		$title = $post['title'];
-		$image = $post['image'];
-		$descriptions = $post['descriptions'];
-		echo '<h1>'.$title.'</h1>';
-		echo '<img src="'.$image.'" alt="">
-			<p>'.$descriptions.'</p>';
-	}
-?>
+<h1><?= $postList['title'] ?></h1>
+<img src="<?= $postList['image'] ?>" alt="">
+<p><?= $postList['descriptions'] ?></p>

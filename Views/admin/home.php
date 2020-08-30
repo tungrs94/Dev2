@@ -18,7 +18,7 @@
     $id = $post['id'];
     $image = $post['image'];
     $linkE = 'admin.php?act=edit&id=' . $id;
-    $linkDel = "<a href='admin.php?act=delete&id=".$id."'>Delete</a>";
+    $linkDel = "<a href='admin.php?act=delete&id=" . $id . "'>Delete</a>";
     $status = $post['status'];
     echo '<tbody>
               <tr>
@@ -35,7 +35,7 @@
                 <td>
                   <a href="' . $linkE . '">Show</a>
                   <a href="' . $linkE . '">Edit</a>
-                  <p>'.$linkDel.'</p>
+                  <p>' . $linkDel . '</p>
                 </td>
               </tr>
             </tbody>';
