@@ -1,4 +1,7 @@
 <h1>New Post</h1>
+<?php
+$date_create = date('m-d-Y H:i:s');
+?>
 <form action="admin.php?act=new" method="POST" enctype="multipart/form-data">
     <div class="card">
         <div class="card-body">

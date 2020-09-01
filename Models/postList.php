@@ -23,18 +23,18 @@ function showPost($id)
 	return	$stmt->fetch();
 }
 
-function newPost($title, $descriptions, $img, $status)
+function newPost($title, $descriptions, $img, $status, $date_create)
 {
-	$sql = "insert into post (title, descriptions, image, status) values ('$title','$descriptions', '$img', '$status')";
+	$sql = "insert into post (title, descriptions, image, status, create_at) values ('$title','$descriptions', '$img', '$status', '$date_create')";
 	$conn = connect();
 	$conn->exec($sql);
 }
 
-function updatePost($id, $title, $status, $descriptions, $img)
+function updatePost($id, $title, $status, $descriptions, $img, $update_at)
 {
 	if ($img != '')
-		$sql = "update post set title='$title',descriptions='$descriptions',image='$img',status='$status' where id=" . $id;
-	else $sql = "update post set title='$title',descriptions='$descriptions',status='$status' where id=" . $id;
+		$sql = "update post set title='$title',descriptions='$descriptions',image='$img',status='$status', update_at='$update_at' where id=" . $id;
+	else $sql = "update post set title='$title',descriptions='$descriptions',status='$status', update_at='$update_at' where id=" . $id;
 	$conn = connect();
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
@@ -55,14 +55,12 @@ function paginator($tongsoluong, $soluongpost)
 		$lenPage += 1;
 	}
 
-
-
-	echo '<ul class="pagination">';
+	echo '<div class="page"><ul class="pagination">';
 	for ($i = 1; $i <= $lenPage; $i++) {
-		$linkPage = 'admin.php?page=' . $i.'&soluongpost='.$soluongpost;
+		$linkPage = 'admin.php?page=' . $i . '&soluongpost=' . $soluongpost;
 		echo "<li class='page-item'><a class='page-link' href='" . $linkPage . "'>" . $i . "</a></li>";
 	}
-	echo '</ul>';
+	echo '</ul></div>';
 }
 
 function paginatorPost($page = 1, $soluongpost = 5)

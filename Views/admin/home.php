@@ -43,15 +43,15 @@
   ?>
 </table>
 
+
 <?php
 echo $paginator;
-
 ?>
-<form action="admin.php?page=".$page.'&soluongpost='.$soluongpost method='POST'>
+<form action="admin.php?page=" .$page.'&soluongpost='.$soluongpost method=' POST'>
   <select name='soluongpost'>
-    <option  value='5'>5</option>
-    <option  value='10'>10</option>
-    <option  value='20'>20</option>
+    <option value='5'>5</option>
+    <option value='10'>10</option>
+    <option value='20'>20</option>
   </select>
   <input type="submit" value="ok">
 </form>
