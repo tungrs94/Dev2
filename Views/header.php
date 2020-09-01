@@ -20,7 +20,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="index_controller.php?act=about">About</a>
           <a class="nav-item nav-link" href="admin.php">Admin</a>
         </div>
       </div>

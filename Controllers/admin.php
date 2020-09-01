@@ -45,7 +45,7 @@ if (isset($_GET['act'])) {
 					$target_dir = "/uploads/";
 					$target_file = $target_dir . basename($img);
 					if ($_FILES['img']['error'] > 0) {
-						echo 'upload error';
+						echo 'not image';
 					} else {
 						move_uploaded_file($_FILES['img']['tmp_name'], $img);
 					}
@@ -63,7 +63,7 @@ if (isset($_GET['act'])) {
 			if (isset($_GET['id']) && ($_GET['id'] > 0)) {
 				delPost($_GET['id']);
 			}
-			$postList=postList();
+			$postList = postList();
 			include '../Views/admin/home.php';
 			break;
 
@@ -73,8 +73,25 @@ if (isset($_GET['act'])) {
 			break;
 	}
 } else {
+
+	$tongsoluong = showTotalPost();
+	if (isset($_GET['page'])) {
+		$page = $_GET['page'];
+		$soluongpost = 5;
+	} else {
+		$page = 1;
+		$soluongpost = 5;
+	}
+	if (isset($_POST['soluongpost'])&&($_POST['soluongpost']>0)) {
+		$soluongpost = $_POST['soluongpost'];
+	}
+	if(isset($_GET['soluongpost'])&&($_GET['soluongpost']>0)){
+		$soluongpost = $_GET['soluongpost'];
+	}
+	$postList = paginatorPost($page, $soluongpost);
+	$paginator = paginator($tongsoluong, $soluongpost);
+
+
+
 	include '../Views/admin/home.php';
 }
-
-
-include '../Views/admin/footer.php';
