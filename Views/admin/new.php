@@ -1,8 +1,10 @@
-<h1>New Post</h1>
+<?php include "Views/admin/header.php"; ?>
+
+<h2>New Post</h2>
 <?php
 $date_create = date('m-d-Y H:i:s');
 ?>
-<form action="admin.php?act=new" method="POST" enctype="multipart/form-data">
+<form action="index.php?Controllers=admin&&action=new" method="POST" enctype="multipart/form-data">
     <div class="card">
         <div class="card-body">
             <div class="form-group">
@@ -44,3 +46,4 @@ $date_create = date('m-d-Y H:i:s');
         </div>
     </div>
 </form>
+
